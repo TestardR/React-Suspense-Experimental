@@ -2,7 +2,7 @@ const fetchPerson = () => {
     return fetch('https://randomuser.me/api').then(data => data.json()).then(data => data.results[0]);
 };
 
-const wrapPromise = (promise) => {
+export const wrapPromise = (promise) => {
     let status = 'pending';
     let result = '';
     let suspender = promise.then(r => {
