@@ -1,9 +1,13 @@
-import React, { Suspense, useState /* useTransition  */ } from "react";
-import { createResource, /* wrapPromise  */} from "./PersonAPI";
-import Person from "./Person";
-import Num from "./Num";
-import { ErrorBoundary } from "./ErrorBoundary";
-import MyButton from "./MyButton";
+import React, {
+  Suspense,
+  useState /* useTransition  */,
+  SuspenseList
+} from 'react';
+import { createResource /* wrapPromise  */ } from './PersonAPI';
+import Person from './Person';
+import Num from './Num';
+import { ErrorBoundary } from './ErrorBoundary';
+import MyButton from './MyButton';
 
 const initialResource = createResource();
 
@@ -14,6 +18,8 @@ function App() {
     timeoutMs: 2000
   }); */
 
+  // <SuspenseList tail="collapsed" revealOrder="together">
+  // </SuspenseList>
   return (
     <div className="App">
       <ErrorBoundary>
@@ -27,8 +33,7 @@ function App() {
       <MyButton
         onClick={() => {
           setResource(createResource());
-        }}
-      >
+        }}>
         Refresh Data
       </MyButton>
     </div>
